@@ -2,31 +2,11 @@
 
 export const dynamic = 'force-dynamic'
 
-import { gql, useSuspenseQuery } from '@apollo/client'
-
-const query = gql`
-  query {
-    allFilms {
-      films {
-        title
-        director
-        releaseDate
-        speciesConnection {
-          species {
-            name
-            classification
-            homeworld {
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-`
+import { useSuspenseQuery } from '@apollo/client'
+import { allCharacters } from '../queries'
 
 export default function PollPage() {
-  const { data } = useSuspenseQuery(query)
+  const { data } = useSuspenseQuery(allCharacters)
 
-  return <div>{data.allFilms.films[0].title}</div>
+  return <div>{data.allPeople.people[0].name}</div>
 }
