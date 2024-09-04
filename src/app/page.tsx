@@ -3,10 +3,18 @@
 export const dynamic = 'force-dynamic'
 
 import { useSuspenseQuery } from '@apollo/client'
-import { allCharacters } from '../queries'
+import { allCharacters, characterShort } from '../queries'
+import CharacterCard from './CharacterCard'
 
 export default function PollPage() {
-  const { data } = useSuspenseQuery(allCharacters)
+  const { data }: { data: { allPeople: { people: [characterShort] } } } =
+    useSuspenseQuery(allCharacters)
 
-  return <div>{data.allPeople.people[0].name}</div>
+  return (
+    <div className="">
+      {data.allPeople.people.map((p) => (
+        <CharacterCard character={p} />
+      ))}
+    </div>
+  )
 }
