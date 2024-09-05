@@ -106,41 +106,43 @@ export default function Page({ params }: { params: { character: string } }) {
             {data.person.homeworld.name}
           </h3>
         </div>
-        <div className="flex mt-2 justify-between gap-4">
-          <div className="flex-1">
-            <Detail
-              label="population"
-              text={data.person.homeworld.population?.toLocaleString()}
-            />
-            <Detail
-              label="gravity"
-              text={data.person.homeworld.gravity}
-              unit="G"
-            />
-            <Detail
-              label="diameter"
-              text={data.person.homeworld.diameter?.toLocaleString()}
-              unit="km"
-            />
+        {data.person.homeworld.name !== 'unknown' && (
+          <div className="flex mt-2 justify-between gap-4">
+            <div className="flex-1">
+              <Detail
+                label="population"
+                text={data.person.homeworld.population?.toLocaleString()}
+              />
+              <Detail
+                label="gravity"
+                text={data.person.homeworld.gravity}
+                unit="G"
+              />
+              <Detail
+                label="diameter"
+                text={data.person.homeworld.diameter?.toLocaleString()}
+                unit="km"
+              />
+            </div>
+            <div className="flex-1">
+              <Detail
+                label="day"
+                text={data.person.homeworld.rotationPeriod?.toString()}
+                unit="hours"
+              />
+              <Detail
+                label="year"
+                text={data.person.homeworld.orbitalPeriod?.toString()}
+                unit="days"
+              />
+              <Detail
+                label="water %"
+                text={data.person.homeworld.surfaceWater?.toString()}
+                unit="%"
+              />
+            </div>
           </div>
-          <div className="flex-1">
-            <Detail
-              label="day"
-              text={data.person.homeworld.rotationPeriod?.toString()}
-              unit="hours"
-            />
-            <Detail
-              label="year"
-              text={data.person.homeworld.orbitalPeriod?.toString()}
-              unit="days"
-            />
-            <Detail
-              label="water %"
-              text={data.person.homeworld.surfaceWater?.toString()}
-              unit="%"
-            />
-          </div>
-        </div>
+        )}
       </div>
       {data.person.filmConnection.films.map((film) => (
         <FilmCard
