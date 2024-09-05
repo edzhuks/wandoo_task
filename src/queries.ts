@@ -21,33 +21,47 @@ export const allCharacters = gql`
 `
 
 export type Homeworld = {
-  name: String
+  name: string
   diameter: Number | undefined
   rotationPeriod: Number | undefined
   orbitalPeriod: Number | undefined
-  gravity: String | undefined
+  gravity: string | undefined
   population: Number | undefined
   surfaceWater: Number | undefined
 }
 
 export type Species = {
-  name: String
-  classification: String | undefined
-  designation: String | undefined
-  language: String | undefined
+  name: string
+  classification: string | undefined
+  designation: string | undefined
+  language: string | undefined
   homeworld: Homeworld | undefined
 }
 
+export type Film = {
+  title: string
+  releaseDate: string
+}
+
 export type characterShort = {
-  id: String
-  hairColor: String
-  skinColor: String
-  name: String
-  birthYear: String
+  id: string
+  hairColor: string
+  skinColor: string
+  name: string
+  birthYear: string
+  species: Species
+  homeworld: Homeworld
+}
+export type characterFull = {
+  id: string
+  hairColor: string
+  skinColor: string
+  name: string
+  birthYear: string
   species: Species
   homeworld: Homeworld
   filmConnection: {
-    films: [{ title: String; releaseDate: String }]
+    films: [Film]
   }
 }
 
