@@ -20,7 +20,9 @@ export default function RootLayout({
       lang="en"
       className="bg-slate-50">
       <body className={inter.className}>
-        <ApolloWrapper>{children}</ApolloWrapper>
+        <ApolloWrapper>
+          <div className="mx-auto max-w-2xl">{children}</div>
+        </ApolloWrapper>
       </body>
     </html>
   )
