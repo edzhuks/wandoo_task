@@ -37,19 +37,21 @@ const CharacterFace = ({
   return (
     <div className="bg-slate-400 bg-opacity-80 rounded-l-xl  w-20  p-3 h-full flex justify-center items-center relative">
       <div
-        className="rounded-full w-14 h-16 absolute top-2"
+        className="rounded-full w-14 h-16 absolute"
         style={{ backgroundColor: `${skinColor}` }}
       />
       {skinColor2 && (
         <div
-          className="rounded-l-full rounded-r-none w-7 h-16 absolute top-2 left-3"
+          className="rounded-l-full rounded-r-none w-7 h-16 absolute left-3"
           style={{ backgroundColor: `${skinColor2}` }}
         />
       )}
-      <div
-        className="rounded-full w-14 h-6 absolute top-2 rounded-t-full rounded-b-none"
-        style={{ backgroundColor: `${hairColor}` }}
-      />
+      <div className="h-16 w-14 absolute">
+        <div
+          className="rounded-full w-14 h-6  rounded-t-full rounded-b-none"
+          style={{ backgroundColor: `${hairColor}` }}
+        />
+      </div>
     </div>
   )
 }
