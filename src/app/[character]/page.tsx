@@ -143,7 +143,10 @@ export default function Page({ params }: { params: { character: string } }) {
         </div>
       </div>
       {data.person.filmConnection.films.map((film) => (
-        <FilmCard film={film} />
+        <FilmCard
+          film={film}
+          key={film.title}
+        />
       ))}
     </div>
   )
