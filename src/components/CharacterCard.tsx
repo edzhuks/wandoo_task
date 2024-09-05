@@ -3,6 +3,7 @@ import CharacterFace from './CharacterFace'
 import CalendarIcon from './icons/Calendar'
 import ChevronRightIcon from './icons/ChevronRight'
 import Link from 'next/link'
+import WorldIcon from './icons/World'
 
 const CharacterCard = ({ character }: { character: characterShort }) => {
   return (
@@ -24,6 +25,7 @@ const CharacterCard = ({ character }: { character: characterShort }) => {
               {character.birthYear}
             </div>
             <div className="flex gap-1">
+              <WorldIcon className="size-5" />
               <span className="line-clamp-1">{character.homeworld.name}</span>
             </div>
           </div>
