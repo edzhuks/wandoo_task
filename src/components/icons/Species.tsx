@@ -1,4 +1,4 @@
-const SpeciesIcon = ({ className }) => {
+const SpeciesIcon = ({ className }: { className: string }) => {
   return (
     <svg
       viewBox="0 0 490.94 490.94"

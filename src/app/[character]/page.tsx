@@ -31,12 +31,12 @@ const Detail = ({
 
 const FilmCard = ({ film }: { film: Film }) => {
   return (
-    <div className="m-3 shadow-lg bg-white rounded-xl p-4 flex">
+    <li className="m-3 shadow-lg bg-white rounded-xl p-4 flex">
       <h3 className="text-lg font-semibold flex-1">{film.title}</h3>
       <div className="text-slate-500">
         {film.releaseDate.replaceAll('-', '.')}
       </div>
-    </div>
+    </li>
   )
 }
 
@@ -144,12 +144,14 @@ export default function Page({ params }: { params: { character: string } }) {
           </div>
         )}
       </div>
-      {data.person.filmConnection.films.map((film) => (
-        <FilmCard
-          film={film}
-          key={film.title}
-        />
-      ))}
+      <ul role="card">
+        {data.person.filmConnection.films.map((film) => (
+          <FilmCard
+            film={film}
+            key={film.title}
+          />
+        ))}
+      </ul>
     </div>
   )
 }

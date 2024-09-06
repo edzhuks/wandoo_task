@@ -58,7 +58,7 @@ export default function PollPage() {
           Name {sortAscending ? '↓' : '↑'}
         </button>
       </div>
-      <div className="">
+      <ul role="list">
         {data.allPeople.people
           .filter((p) =>
             p.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -73,7 +73,7 @@ export default function PollPage() {
               key={p.name}
             />
           ))}
-      </div>
+      </ul>
     </div>
   )
 }
